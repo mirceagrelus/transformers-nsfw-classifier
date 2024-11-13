@@ -3,6 +3,19 @@
 
 A sample microservice that classifies images as NSFW or neutral using a pre-trained model. It provides a REST API endpoint that accepts an image file and returns classification scores.
 
+```
+nsfw-classifier-microservice/
+│
+├── .devcontainer/              # Dev container configuration for VS Code
+├── data/
+│   └── image/                  # Folder containing images for testing
+├── docker-compose.yml          # Docker Compose configuration
+├── Dockerfile                  # Docker configuration for containerizing the app
+├── nsfw_classifier.py          # Main Flask microservice code
+├── nsfw_classifier.ipynb       # Notebook for interacting with the model 
+├── README.md                   # This documentation
+└─ requirements.txt             # Python dependencies
+```
 ## Requirements
 
 - Python 3.9+
@@ -85,6 +98,14 @@ The service will be available at `http://127.0.0.1:8080/nsfw_classifier`.
 2. **Open the project folder in VSCode**
 3. **Select the Dev Containers option to `Reopen in container`**
 
+## First run
+On first run download the model locally. I haven't included it to save space.
+
+Uncomment the lines to download the model:
+```python
+pipe = pipeline("image-classification", model="giacomoarienti/nsfw-classifier")
+pipe.save_pretrained(local_model_path)
+```
 
 ### Example Request
 
