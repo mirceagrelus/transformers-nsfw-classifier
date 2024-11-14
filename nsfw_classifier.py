@@ -6,7 +6,7 @@ local_model_path = "./model/nsfw-classifier"
 
 app = Flask(__name__)
 
-# use this to download the model locally from hugginface
+# use this to download the model locally from hugging face
 # pipe = pipeline("image-classification", model="giacomoarienti/nsfw-classifier")
 # pipe.save_pretrained(local_model_path)
 
@@ -15,6 +15,8 @@ pipe = pipeline("image-classification", model=local_model_path)
 
 @app.route('/nsfw_classifier', methods=['POST'])
 def nsfw_classifier():
+    """ Classify an image as NSFW or neutral
+    """
     # Check if an image is part of the request
     if 'image' not in request.files:
         return jsonify({"error": "No image provided"}), 400

@@ -14,7 +14,7 @@ nsfw-classifier-microservice/
 ├── nsfw_classifier.py          # Main Flask microservice code
 ├── nsfw_classifier.ipynb       # Notebook for interacting with the model 
 ├── README.md                   # This documentation
-└─ requirements.txt             # Python dependencies
+└── requirements.txt            # Python dependencies
 ```
 ## Requirements
 
